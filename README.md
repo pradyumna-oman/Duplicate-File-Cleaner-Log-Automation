@@ -22,11 +22,12 @@ This project is being developed incrementally using professional Git workflows a
 - Basic exception handling
 - Modular code organization
 
-### Version 0.3.0
-- Recursive directory scanning
-- Scan nested folders
-- Display full file paths
-- Count all files and folders
+## Version 0.4.0
+- Generate MD5 checksum
+- Generate SHA256 checksum
+- Binary file reading
+- Efficient chunk-based hashing
+- Foundation for duplicate detection
 
 ---
 
@@ -125,16 +126,12 @@ C:\Users\YourName\Downloads
 ## Roadmap
 
 - [x] Project Setup
-- [x] Directory Scanner
-- [ ] Recursive Scanner
-- [ ] File Metadata
-- [ ] SHA256 Hash Generator
+- [x] Recursive Scanner
+- [x] Checksum Generator
 - [ ] Duplicate Detection
-- [ ] Report Generator
+- [ ] CSV Report
 - [ ] Logging
 - [ ] Scheduler
-- [ ] GUI
-- [ ] Industrial Version
 
 ---
 

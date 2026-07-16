@@ -1,4 +1,5 @@
 from src.scanner import scan_directory
+from src.hasher import generate_md5, generate_sha256
 
 
 def main():
@@ -13,12 +14,18 @@ def main():
 
         files, total_files, total_folders = scan_directory(directory)
 
-        print("\nFiles Found")
+        print("\nFile Checksums")
         print("-" * 60)
 
         for file in files:
-            print(file)
+            md5 = generate_md5(file)
+            sha = generate_sha256(file)
 
+            print(f"\nFile : {file}")
+            print(f"MD5    : {md5}")
+            print(f"SHA256 : {sha}")
+
+        print("\nScan Completed Successfully")
         print("\nSummary")
         print("-" * 30)
         print(f"Total Files    : {total_files}")
