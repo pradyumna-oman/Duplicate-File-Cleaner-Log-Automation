@@ -1,5 +1,5 @@
 from src.scanner import scan_directory
-from src.hasher import generate_md5, generate_sha256
+from src.duplicate_detector import find_duplicates
 
 
 def main():
@@ -14,22 +14,31 @@ def main():
 
         files, total_files, total_folders = scan_directory(directory)
 
-        print("\nFile Checksums")
+        duplicates = find_duplicates(files)
+
+        print("\nDuplicate Report")
         print("-" * 60)
 
-        for file in files:
-            md5 = generate_md5(file)
-            sha = generate_sha256(file)
+        duplicate_found = False
 
-            print(f"\nFile : {file}")
-            print(f"MD5    : {md5}")
-            print(f"SHA256 : {sha}")
+        for file_hash, file_list in duplicates.items():
 
-        print("\nScan Completed Successfully")
+            if len(file_list) > 1:
+
+                duplicate_found = True
+
+                print(f"\nSHA256 : {file_hash}")
+
+                for file in file_list:
+                    print(f"   {file}")
+
+        if not duplicate_found:
+            print("No duplicate files found.")
+
         print("\nSummary")
         print("-" * 30)
-        print(f"Total Files    : {total_files}")
-        print(f"Total Folders  : {total_folders}")
+        print(f"Files   : {total_files}")
+        print(f"Folders : {total_folders}")
 
     except Exception as error:
         print(error)

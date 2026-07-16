@@ -1,0 +1,20 @@
+from src.hasher import generate_sha256
+
+
+def find_duplicates(files):
+    """
+    Detect duplicate files using SHA256.
+    """
+
+    duplicate_map = {}
+
+    for file in files:
+
+        file_hash = generate_sha256(file)
+
+        if file_hash not in duplicate_map:
+            duplicate_map[file_hash] = []
+
+        duplicate_map[file_hash].append(file)
+
+    return duplicate_map

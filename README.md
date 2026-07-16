@@ -29,6 +29,12 @@ This project is being developed incrementally using professional Git workflows a
 - Efficient chunk-based hashing
 - Foundation for duplicate detection
 
+## Version 0.5.0
+- Detect duplicate files using SHA256
+- Hash-based duplicate grouping
+- Display duplicate file paths
+- Dictionary-based detection algorithm
+
 ---
 
 ## Project Structure
@@ -126,11 +132,13 @@ C:\Users\YourName\Downloads
 ## Roadmap
 
 - [x] Project Setup
+- [x] Directory Scanner
 - [x] Recursive Scanner
 - [x] Checksum Generator
-- [ ] Duplicate Detection
-- [ ] CSV Report
+- [x] Duplicate Detection Engine
+- [ ] Report Generator
 - [ ] Logging
+- [ ] Delete/Move Duplicates
 - [ ] Scheduler
 
 ---
