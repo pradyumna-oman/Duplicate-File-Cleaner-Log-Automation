@@ -40,6 +40,14 @@ This project is being developed incrementally using professional Git workflows a
 - Automatic reports folder creation
 - Excel compatible output
 
+## Version 0.6.1
+- CSV report generation
+- JSON report generation
+- Timestamped reports
+- File size information
+- Last modified timestamp
+- Professional reporting module
+
 ---
 
 ## Project Structure
