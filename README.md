@@ -22,31 +22,41 @@ This project is being developed incrementally using professional Git workflows a
 - Basic exception handling
 - Modular code organization
 
-## Version 0.4.0
+### Version 0.4.0
 - Generate MD5 checksum
 - Generate SHA256 checksum
 - Binary file reading
 - Efficient chunk-based hashing
 - Foundation for duplicate detection
 
-## Version 0.5.0
+### Version 0.5.0
 - Detect duplicate files using SHA256
 - Hash-based duplicate grouping
 - Display duplicate file paths
 - Dictionary-based detection algorithm
 
-## Version 0.6.0
+### Version 0.6.0
 - CSV duplicate report
 - Automatic reports folder creation
 - Excel compatible output
 
-## Version 0.6.1
+### Version 0.6.1
 - CSV report generation
 - JSON report generation
 - Timestamped reports
 - File size information
 - Last modified timestamp
 - Professional reporting module
+
+### Version 0.7.0
+- Size-based file grouping
+- Skip hashing files with unique sizes
+- Faster duplicate detection
+- Improved scalability for large directories
+
+### Performance Improvement
+
+The application now groups files by size before hashing. Files with unique sizes are skipped, reducing unnecessary disk reads and making scans significantly faster on large datasets.
 
 ---
 

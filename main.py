@@ -1,6 +1,10 @@
 from src.scanner import scan_directory
 from src.duplicate_detector import find_duplicates
 from src.report import generate_reports
+from src.optimizer import (
+    group_files_by_size,
+    get_duplicate_size_groups
+)
 
 
 def main():
@@ -15,7 +19,11 @@ def main():
 
         files, total_files, total_folders = scan_directory(directory)
 
-        duplicates = find_duplicates(files)
+        size_map = group_files_by_size(files)
+
+        candidate_groups = get_duplicate_size_groups(size_map)
+
+        duplicates = find_duplicates(candidate_groups)
 
         csv_report, json_report = generate_reports(duplicates)
 
