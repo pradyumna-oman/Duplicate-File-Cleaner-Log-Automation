@@ -35,6 +35,11 @@ This project is being developed incrementally using professional Git workflows a
 - Display duplicate file paths
 - Dictionary-based detection algorithm
 
+## Version 0.6.0
+- CSV duplicate report
+- Automatic reports folder creation
+- Excel compatible output
+
 ---
 
 ## Project Structure
@@ -132,13 +137,14 @@ C:\Users\YourName\Downloads
 ## Roadmap
 
 - [x] Project Setup
-- [x] Directory Scanner
+- [x] Scanner
 - [x] Recursive Scanner
 - [x] Checksum Generator
-- [x] Duplicate Detection Engine
-- [ ] Report Generator
+- [x] Duplicate Detection
+- [x] CSV Report
+- [ ] JSON Report
 - [ ] Logging
-- [ ] Delete/Move Duplicates
+- [ ] Delete Duplicates
 - [ ] Scheduler
 
 ---

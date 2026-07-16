@@ -1,5 +1,6 @@
 from src.scanner import scan_directory
 from src.duplicate_detector import find_duplicates
+from src.report import generate_csv_report
 
 
 def main():
@@ -15,6 +16,8 @@ def main():
         files, total_files, total_folders = scan_directory(directory)
 
         duplicates = find_duplicates(files)
+
+        report = generate_csv_report(duplicates)
 
         print("\nDuplicate Report")
         print("-" * 60)
@@ -39,6 +42,9 @@ def main():
         print("-" * 30)
         print(f"Files   : {total_files}")
         print(f"Folders : {total_folders}")
+
+        print("\nReport Generated Successfully")
+        print(report)
 
     except Exception as error:
         print(error)
