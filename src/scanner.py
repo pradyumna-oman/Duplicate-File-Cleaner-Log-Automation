@@ -3,41 +3,33 @@ import os
 
 def scan_directory(directory_path):
     """
-    Scan a directory (non-recursive).
+    Scan a directory recursively.
 
     Parameters:
         directory_path (str): Path of the directory.
 
     Returns:
         tuple:
-            items
-            file_count
-            folder_count
+            all_files
+            total_files
+            total_folders
     """
 
-    # Check whether directory exists
     if not os.path.exists(directory_path):
         raise FileNotFoundError(f"Directory not found: {directory_path}")
 
-    # Check whether it is a directory
     if not os.path.isdir(directory_path):
         raise NotADirectoryError(f"{directory_path} is not a directory")
 
-    # Get all files and folders
-    items = os.listdir(directory_path)
-
-    file_count = 0
+    all_files = []
     folder_count = 0
 
-    # Count files and folders
-    for item in items:
+    for root, directories, files in os.walk(directory_path):
 
-        full_path = os.path.join(directory_path, item)
+        folder_count += len(directories)
 
-        if os.path.isfile(full_path):
-            file_count += 1
+        for file in files:
+            full_path = os.path.join(root, file)
+            all_files.append(full_path)
 
-        elif os.path.isdir(full_path):
-            folder_count += 1
-
-    return items, file_count, folder_count
+    return all_files, len(all_files), folder_count

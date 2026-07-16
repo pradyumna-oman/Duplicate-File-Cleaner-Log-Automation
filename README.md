@@ -22,6 +22,12 @@ This project is being developed incrementally using professional Git workflows a
 - Basic exception handling
 - Modular code organization
 
+### Version 0.3.0
+- Recursive directory scanning
+- Scan nested folders
+- Display full file paths
+- Count all files and folders
+
 ---
 
 ## Project Structure

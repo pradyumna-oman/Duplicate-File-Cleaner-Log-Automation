@@ -11,22 +11,21 @@ def main():
 
     try:
 
-        items, files, folders = scan_directory(directory)
+        files, total_files, total_folders = scan_directory(directory)
 
-        print("\nDirectory Contents")
-        print("-" * 30)
+        print("\nFiles Found")
+        print("-" * 60)
 
-        for item in items:
-            print(item)
+        for file in files:
+            print(file)
 
         print("\nSummary")
         print("-" * 30)
-        print(f"Files      : {files}")
-        print(f"Folders    : {folders}")
-        print(f"Total Items: {len(items)}")
+        print(f"Total Files    : {total_files}")
+        print(f"Total Folders  : {total_folders}")
 
     except Exception as error:
-        print(f"\nError: {error}")
+        print(error)
 
 
 if __name__ == "__main__":
