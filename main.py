@@ -5,27 +5,54 @@ from src.optimizer import (
     group_files_by_size,
     get_duplicate_size_groups
 )
+import logging
+from src.logger import setup_logger
 
 
 def main():
+    log_file = setup_logger()
+
+    logging.info("Application Started")
 
     print("=" * 60)
     print("Duplicate File Cleaner & Log Automation")
     print("=" * 60)
 
     directory = input("Enter directory path: ")
+    logging.info(f"Scanning Directory : {directory}")
 
     try:
 
         files, total_files, total_folders = scan_directory(directory)
 
+        logging.info(f"Total Files : {total_files}")
+        logging.info(f"Total Folders : {total_folders}")
+
         size_map = group_files_by_size(files)
 
         candidate_groups = get_duplicate_size_groups(size_map)
 
+        logging.info(f"Candidate Groups : {len(candidate_groups)}")
+
         duplicates = find_duplicates(candidate_groups)
 
+        duplicate_count = sum(
+            len(file_list)
+            for file_list in duplicates.values()
+            if len(file_list) > 1
+            )
+
+        logging.info(f"Duplicate Files : {duplicate_count}")
+
         csv_report, json_report = generate_reports(duplicates)
+
+        logging.info(f"CSV Report : {csv_report}")
+        logging.info(f"JSON Report : {json_report}")
+
+        logging.info("Application Finished Successfully")
+
+        print("\nLog File")
+        print(log_file)
 
         print("\nDuplicate Report")
         print("-" * 60)
@@ -57,6 +84,9 @@ def main():
         print(f"JSON : {json_report}")
 
     except Exception as error:
+
+        logging.exception(error)
+
         print(error)
 
 
