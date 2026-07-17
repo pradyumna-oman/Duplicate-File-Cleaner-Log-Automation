@@ -7,6 +7,7 @@ from src.optimizer import (
 )
 import logging
 from src.logger import setup_logger
+from src.mover import move_duplicates
 
 
 def main():
@@ -62,9 +63,7 @@ def main():
         for file_hash, file_list in duplicates.items():
 
             if len(file_list) > 1:
-
                 duplicate_found = True
-
                 print(f"\nSHA256 : {file_hash}")
 
                 for file in file_list:
@@ -82,6 +81,20 @@ def main():
         
         print(f"CSV  : {csv_report}")
         print(f"JSON : {json_report}")
+
+        print("\nChoose an option")
+        print("1. Move duplicate files to Trash")
+        print("2. Skip")
+        choice = input("\nEnter choice: ")
+        if choice == "1":
+            moved = move_duplicates(duplicates)
+            logging.info(
+                f"Moved Files : {moved}"
+            )
+
+            print(f"\nMoved {moved} duplicate files.")
+        else:
+            print("\nNo files moved.")
 
     except Exception as error:
 

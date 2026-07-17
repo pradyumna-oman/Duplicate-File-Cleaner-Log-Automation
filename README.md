@@ -58,6 +58,23 @@ This project is being developed incrementally using professional Git workflows a
 
 The application now groups files by size before hashing. Files with unique sizes are skipped, reducing unnecessary disk reads and making scans significantly faster on large datasets.
 
+### Version 0.8.0
+- Industrial logging
+- Timestamped log files
+- Automatic log directory creation
+- Exception logging
+- Scan summary logging
+
+## Version 0.9.0
+
+### New Features
+
+- Safe duplicate file mover
+- Automatic Trash folder creation
+- Keeps one original copy
+- Prevents filename collisions
+- Logs every moved file
+
 ---
 
 ## Project Structure
@@ -160,8 +177,8 @@ C:\Users\YourName\Downloads
 - [x] Checksum Generator
 - [x] Duplicate Detection
 - [x] CSV Report
-- [ ] JSON Report
-- [ ] Logging
+- [x] JSON Report
+- [x] Logging
 - [ ] Delete Duplicates
 - [ ] Scheduler
 
