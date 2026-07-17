@@ -75,6 +75,45 @@ The application now groups files by size before hashing. Files with unique sizes
 - Prevents filename collisions
 - Logs every moved file
 
+## Version 1.0.0 - Command Line Interface (CLI)
+
+### Features Added
+
+- Added command-line interface using `argparse`
+- Supports directory input through `--path`
+- Supports optional `--move` flag to move duplicate files
+- Automatic command validation
+- Built-in `--help` documentation
+- Improved project usability for automation and scripting
+
+### Usage
+
+#### Scan a Directory
+
+```bash
+python main.py --path "D:\TestFolder"
+```
+
+#### Move Duplicate Files
+
+```bash
+python main.py --path "D:\TestFolder" --move
+```
+
+#### Display Help
+
+```bash
+python main.py --help
+```
+
+### Output
+
+- Duplicate file report in the console
+- CSV report
+- JSON report
+- Log file
+- Optional `Trash/` folder containing moved duplicate files
+
 ---
 
 ## Project Structure
