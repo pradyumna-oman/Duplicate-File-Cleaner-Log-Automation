@@ -114,6 +114,23 @@ python main.py --help
 - Log file
 - Optional `Trash/` folder containing moved duplicate files
 
+## Version 1.1.0 - Application Refactoring
+
+### Improvements
+
+- Refactored the application into a class-based architecture.
+- Added `DuplicateCleanerApplication`.
+- Reduced the size of `main.py`.
+- Separated workflow and presentation logic.
+- Improved maintainability and readability.
+
+### Benefits
+
+- Cleaner code organization
+- Easier future feature additions
+- Better object-oriented design
+- More professional project structure
+
 ---
 
 ## Project Structure
